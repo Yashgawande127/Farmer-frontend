@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { 
-    Search, 
-    TrendingUp, 
-    TrendingDown, 
-    MapPin, 
-    Clock, 
+import {
+    Search,
+    TrendingUp,
+    TrendingDown,
+    MapPin,
+    Clock,
     Filter,
     ArrowUpRight,
     IndianRupee,
@@ -15,7 +15,7 @@ import {
 const Mandi = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedState, setSelectedState] = useState('All');
-    
+
     // Mock data for Mandi prices
     const mandiData = [
         { id: 1, crop: 'Wheat (Grade A)', price: 2450, change: 1.5, state: 'Punjab', market: 'Khanna', trend: 'up' },
@@ -31,8 +31,8 @@ const Mandi = () => {
     const states = ['All', 'Punjab', 'Haryana', 'Maharashtra', 'Madhya Pradesh', 'Rajasthan', 'Uttar Pradesh'];
 
     const filteredData = mandiData.filter(item => {
-        const matchesSearch = item.crop.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                             item.market.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesSearch = item.crop.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            item.market.toLowerCase().includes(searchQuery.toLowerCase());
         const matchesState = selectedState === 'All' || item.state === selectedState;
         return matchesSearch && matchesState;
     });
@@ -92,8 +92,8 @@ const Mandi = () => {
             <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col md:flex-row gap-4">
                 <div className="flex-1 relative">
                     <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
-                    <input 
-                        type="text" 
+                    <input
+                        type="text"
                         placeholder="Search crop or market (e.g. Wheat, Indore)..."
                         className="w-full pl-12 pr-4 py-3 bg-gray-50 rounded-xl border border-transparent focus:border-green-500 focus:bg-white transition-all outline-none font-medium"
                         value={searchQuery}
@@ -101,7 +101,7 @@ const Mandi = () => {
                     />
                 </div>
                 <div className="flex gap-2">
-                    <select 
+                    <select
                         className="px-4 py-3 bg-gray-50 rounded-xl border border-transparent focus:border-green-500 focus:bg-white transition-all outline-none font-bold text-gray-700"
                         value={selectedState}
                         onChange={(e) => setSelectedState(e.target.value)}
@@ -123,14 +123,13 @@ const Mandi = () => {
                         <div key={item.id} className="bg-white border border-gray-100 rounded-3xl p-6 hover:border-green-200 transition-all hover:shadow-xl hover:shadow-green-900/5 group">
                             <div className="flex justify-between items-start">
                                 <div className="flex items-center space-x-4">
-                                    <div className={`p-4 rounded-2xl ${
-                                        item.trend === 'up' ? 'bg-green-50 text-green-600' : 
-                                        item.trend === 'down' ? 'bg-red-50 text-red-600' : 
-                                        'bg-gray-50 text-gray-600'
-                                    }`}>
-                                        {item.trend === 'up' ? <TrendingUp className="w-8 h-8" /> : 
-                                         item.trend === 'down' ? <TrendingDown className="w-8 h-8" /> : 
-                                         <Clock className="w-8 h-8" />}
+                                    <div className={`p-4 rounded-2xl ${item.trend === 'up' ? 'bg-green-50 text-green-600' :
+                                            item.trend === 'down' ? 'bg-red-50 text-red-600' :
+                                                'bg-gray-50 text-gray-600'
+                                        }`}>
+                                        {item.trend === 'up' ? <TrendingUp className="w-8 h-8" /> :
+                                            item.trend === 'down' ? <TrendingDown className="w-8 h-8" /> :
+                                                <Clock className="w-8 h-8" />}
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-black text-gray-900 group-hover:text-green-600 transition-colors">{item.crop}</h3>
@@ -144,18 +143,17 @@ const Mandi = () => {
                                         <IndianRupee className="w-5 h-5 mr-1" />
                                         <span>{item.price.toLocaleString()}</span>
                                     </div>
-                                    <div className={`flex items-center justify-end text-sm font-bold mt-1 ${
-                                        item.trend === 'up' ? 'text-green-600' : 
-                                        item.trend === 'down' ? 'text-red-600' : 
-                                        'text-gray-400'
-                                    }`}>
+                                    <div className={`flex items-center justify-end text-sm font-bold mt-1 ${item.trend === 'up' ? 'text-green-600' :
+                                            item.trend === 'down' ? 'text-red-600' :
+                                                'text-gray-400'
+                                        }`}>
                                         {item.trend === 'up' && '+'}
                                         {item.change}% {item.trend !== 'stable' && (item.trend === 'up' ? '▲' : '▼')}
                                         {item.trend === 'stable' && 'Steady'}
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div className="mt-8 pt-6 border-t border-gray-50 flex justify-between items-center font-bold">
                                 <div className="flex space-x-4 text-xs tracking-widest uppercase text-gray-400">
                                     <div>Min: ₹{(item.price * 0.95).toFixed(0)}</div>
@@ -175,7 +173,7 @@ const Mandi = () => {
                     </div>
                 )}
             </div>
-            
+
             {/* Disclaimer */}
             <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
                 <p className="text-xs text-gray-400 font-medium leading-relaxed">
