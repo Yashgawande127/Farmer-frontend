@@ -81,7 +81,7 @@ const Login = () => {
                     <div className="space-y-8 animate-slideUp" style={{ animationDelay: '0.2s' }}>
                         {[
                             { icon: CheckCircle2, title: "Precision Inventory", desc: "Track every seed and fertilizer bag with ease." },
-                            { icon: CheckCircle2, title: "Market Smart", desc: "Real-time Mandi prices at your fingertips." },
+                            { icon: CheckCircle2, title: "Weather Ready", desc: "Real-time weather alerts for your farm." },
                             { icon: CheckCircle2, title: "Finance First", desc: "Simple, transparent savings and expense tracking." }
                         ].map((item, i) => (
                             <div key={i} className="flex items-start space-x-4 group">

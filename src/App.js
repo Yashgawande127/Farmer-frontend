@@ -11,7 +11,7 @@ import Machinery from './pages/Machinery/Machinery';
 import Fertilizers from './pages/Fertilizers/Fertilizers';
 import SavingsAccount from './pages/SavingsAccount/SavingsAccount';
 import Profile from './pages/Profile/Profile';
-import Mandi from './pages/Mandi/Mandi';
+
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
@@ -38,7 +38,7 @@ function App() {
                             <Route path="fertilizers" element={<Fertilizers />} />
                             <Route path="savings" element={<SavingsAccount />} />
                             <Route path="profile" element={<Profile />} />
-                            <Route path="mandi" element={<Mandi />} />
+
                         </Route>
                     </Routes>
                 </div>

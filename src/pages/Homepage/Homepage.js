@@ -58,7 +58,7 @@ const Homepage = () => {
                                 <span className="text-green-600">Prosperous India</span>
                             </h1>
                             <p className="text-xl text-gray-600 mb-10 leading-relaxed max-w-xl">
-                                Track your seeds, fertilizers, and machinery with ease. Get real-time Mandi prices and weather alerts specially designed for the Indian farmer.
+                                Track your seeds, fertilizers, and machinery with ease. Get real-time weather alerts specially designed for the Indian farmer.
                             </p>
                             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                                 <Link to="/register" className="btn-primary text-center px-10 py-5 text-lg shadow-xl shadow-green-100 flex items-center justify-center space-x-3">
@@ -92,20 +92,7 @@ const Homepage = () => {
             {/* Quick Mandi & Weather Bar */}
             <div className="max-w-7xl mx-auto px-4 -mt-10 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="glass shadow-xl rounded-2xl p-6 border border-white hover-lift flex items-center space-x-6 backdrop-blur-md">
-                        <img src="/assets/mandi_prices.png" alt="Mandi" className="w-16 h-16 rounded-xl object-cover" />
-                        <div>
-                            <h3 className="font-bold text-gray-900">Today's Mandi</h3>
-                            <div className="flex items-center text-green-600 font-semibold space-x-2">
-                                <IndianRupee className="w-4 h-4" />
-                                <span>Wheat: ₹2,450 / Quintal</span>
-                            </div>
-                            <Link to="/app/mandi" className="text-xs text-blue-600 flex items-center space-x-1 mt-1 font-bold uppercase">
-                                <span>See all prices</span>
-                                <ChevronRight className="w-3 h-3" />
-                            </Link>
-                        </div>
-                    </div>
+
 
                     <div className="glass shadow-xl rounded-2xl p-6 border border-white hover-lift flex items-center space-x-6 backdrop-blur-md">
                         <img src="/assets/weather_icon.png" alt="Weather" className="w-16 h-16 rounded-xl object-cover" />
@@ -267,7 +254,7 @@ const Homepage = () => {
                                 name: "Suresh Reddy",
                                 location: "Warangal, Telangana",
                                 img: "https://randomuser.me/api/portraits/men/85.jpg",
-                                quote: "Mandi price alerts are a lifesaver. I now know exactly when and where to sell my crops for the best profit."
+                                quote: "I love the real-time weather alerts and inventory management. It has helped me plan my activities much better and avoid losses."
                             }
                         ].map((t, i) => (
                             <div key={i} className="bg-white/10 backdrop-blur-xl p-8 rounded-[40px] border border-white/20 text-white hover-lift">
@@ -351,7 +338,7 @@ const Homepage = () => {
                             <ul className="space-y-4 font-medium text-gray-500">
                                 <li className="hover:text-green-600 transition-colors cursor-pointer">Seed Management</li>
                                 <li className="hover:text-green-600 transition-colors cursor-pointer">Inventory Tracking</li>
-                                <li className="hover:text-green-600 transition-colors cursor-pointer">Market Prices</li>
+
                                 <li className="hover:text-green-600 transition-colors cursor-pointer">Weather Alerts</li>
                             </ul>
                         </div>

@@ -57,7 +57,7 @@ const Register = () => {
 
     const validateStep2 = () => {
         if (!formData.farmName.trim()) return 'Farm name helps identify your data.';
-        if (!formData.location.trim()) return 'Location is needed for Mandi & Weather.';
+        if (!formData.location.trim()) return 'Location is needed for weather alerts.';
         if (!formData.farmSize.trim()) return 'Please select your farm size.';
         if (!formData.primaryCrop.trim()) return 'Primary crop is required.';
         return null;
@@ -142,7 +142,7 @@ const Register = () => {
                     <div className="space-y-8 animate-slideUp" style={{ animationDelay: '0.2s' }}>
                         {[
                             { title: "Smart Inventory", desc: "Know exactly what's in your shed at any time." },
-                            { title: "Mandi Insights", desc: "Sell your crops at the best price with real-time data." },
+                            { title: "Weather Insights", desc: "Get real-time weather alerts and agricultural reports." },
                             { title: "Automated Reports", desc: "Get financial reports tailored for agricultural loans." }
                         ].map((item, i) => (
                             <div key={i} className="flex items-start space-x-4">
