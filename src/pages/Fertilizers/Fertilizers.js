@@ -254,63 +254,63 @@ const Fertilizers = () => {
             {/* Modern Hero Header */}
             <div className="relative overflow-hidden bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 text-white">
                 <div className="absolute inset-0 bg-black opacity-10"></div>
-                <div className="relative px-6 py-12">
+                <div className="relative px-4 py-8 sm:px-6 sm:py-12">
                     <div className="max-w-7xl mx-auto">
                         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-6 lg:space-y-0">
                             <div className="space-y-4">
-                                <div className="flex items-center space-x-3">
+                                <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-3">
                                     <div className="p-3 bg-white/20 rounded-xl backdrop-blur-sm">
-                                        <Leaf className="h-8 w-8 text-white" />
+                                        <Leaf className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                                     </div>
                                     <div>
-                                        <h1 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white to-green-100 bg-clip-text text-transparent">
+                                        <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white to-green-100 bg-clip-text text-transparent">
                                             Fertilizers
                                         </h1>
-                                        <p className="text-green-100 text-lg font-medium">Premium Quality Agricultural Solutions</p>
+                                        <p className="text-green-100 text-sm sm:text-lg font-medium">Premium Quality Solutions</p>
                                     </div>
                                 </div>
-                                <p className="text-white/90 text-lg max-w-2xl leading-relaxed">
-                                    Discover high-quality fertilizers to boost your crop yield and manage your inventory with intelligent tracking
+                                <p className="text-white/90 text-sm sm:text-lg max-w-2xl leading-relaxed">
+                                    Discover high-quality fertilizers to boost your crop yield and manage your inventory with intelligent tracking.
                                 </p>
                             </div>
 
                             {activeTab === 'inventory' && (
                                 <button
                                     onClick={() => setShowAddModal(true)}
-                                    className="group bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-6 py-3 rounded-xl flex items-center space-x-3 transition-all duration-300 transform hover:scale-105 border border-white/20"
+                                    className="group bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-4 py-2 sm:px-6 sm:py-3 rounded-xl flex items-center space-x-3 transition-all duration-300 transform hover:scale-105 border border-white/20 text-sm sm:text-base"
                                 >
-                                    <Plus className="h-5 w-5 group-hover:rotate-90 transition-transform duration-300" />
-                                    <span className="font-medium">Add to Inventory</span>
+                                    <Plus className="h-4 w-4 sm:h-5 sm:w-5 group-hover:rotate-90 transition-transform duration-300" />
+                                    <span className="font-medium whitespace-nowrap">Add to Inventory</span>
                                 </button>
                             )}
                         </div>
 
                         {/* Quick Stats */}
-                        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                                <div className="flex items-center space-x-3">
-                                    <Package className="h-8 w-8 text-green-200" />
+                        <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-6">
+                            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-6 border border-white/20 text-center sm:text-left">
+                                <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-3">
+                                    <Package className="h-5 w-5 sm:h-8 sm:w-8 text-green-200" />
                                     <div>
-                                        <p className="text-white/70 text-sm font-medium">Available Products</p>
-                                        <p className="text-2xl font-bold text-white">{filteredFertilizers.length}</p>
+                                        <p className="text-white/70 text-[10px] sm:text-sm font-medium uppercase tracking-wider">Products</p>
+                                        <p className="text-lg sm:text-2xl font-bold text-white">{filteredFertilizers.length}</p>
                                     </div>
                                 </div>
                             </div>
-                            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                                <div className="flex items-center space-x-3">
-                                    <Star className="h-8 w-8 text-yellow-300" />
+                            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-6 border border-white/20 text-center sm:text-left">
+                                <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-3">
+                                    <Star className="h-5 w-5 sm:h-8 sm:w-8 text-yellow-300" />
                                     <div>
-                                        <p className="text-white/70 text-sm font-medium">Top Rated</p>
-                                        <p className="text-2xl font-bold text-white">4.6★</p>
+                                        <p className="text-white/70 text-[10px] sm:text-sm font-medium uppercase tracking-wider">Rating</p>
+                                        <p className="text-lg sm:text-2xl font-bold text-white">4.6★</p>
                                     </div>
                                 </div>
                             </div>
-                            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                                <div className="flex items-center space-x-3">
-                                    <ShoppingCart className="h-8 w-8 text-blue-300" />
+                            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-6 border border-white/20 text-center sm:text-left">
+                                <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-3">
+                                    <ShoppingCart className="h-5 w-5 sm:h-8 sm:w-8 text-blue-300" />
                                     <div>
-                                        <p className="text-white/70 text-sm font-medium">In Stock</p>
-                                        <p className="text-2xl font-bold text-white">{filteredFertilizers.filter(f => f.inStock).length}</p>
+                                        <p className="text-white/70 text-[10px] sm:text-sm font-medium uppercase tracking-wider">Stock</p>
+                                        <p className="text-lg sm:text-2xl font-bold text-white">{filteredFertilizers.filter(f => f.inStock).length}</p>
                                     </div>
                                 </div>
                             </div>

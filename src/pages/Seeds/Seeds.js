@@ -381,7 +381,7 @@ const Seeds = () => {
                 {/* Premium Professional Header */}
                 <div className="relative">
                     {/* Background with animated patterns */}
-                    <div className="bg-gradient-to-br from-green-600 via-emerald-700 to-teal-800 rounded-3xl p-8 text-white relative overflow-hidden shadow-2xl">
+                <div className="bg-gradient-to-br from-green-600 via-emerald-700 to-teal-800 rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 text-white relative overflow-hidden shadow-2xl">
                         {/* Animated background elements */}
                         <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/10"></div>
                         <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-48 translate-x-48"></div>
@@ -400,13 +400,13 @@ const Seeds = () => {
                             <div className="grid grid-cols-1 xl:grid-cols-12 gap-8">
                                 {/* Main Seeds Section */}
                                 <div className="xl:col-span-8">
-                                    <div className="flex items-center mb-4">
-                                        <div className="bg-white/20 backdrop-blur-sm rounded-full p-3 mr-4">
+                                    <div className="flex flex-col sm:flex-row items-start sm:items-center mb-6">
+                                        <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 sm:p-3 mb-4 sm:mb-0 sm:mr-4">
                                             <Leaf className="h-8 w-8 text-green-300" />
                                         </div>
                                         <div>
-                                            <div className="flex items-center space-x-2">
-                                                <h1 className="text-4xl font-bold bg-gradient-to-r from-white to-green-100 bg-clip-text text-transparent">
+                                            <div className="flex flex-wrap items-center gap-2">
+                                                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-white to-green-100 bg-clip-text text-transparent">
                                                     Seeds Inventory
                                                 </h1>
                                                 <div className="flex space-x-1">
@@ -414,38 +414,38 @@ const Seeds = () => {
                                                     <Package className="h-5 w-5 text-green-300" />
                                                 </div>
                                             </div>
-                                            <div className="flex items-center mt-2 space-x-4">
+                                            <div className="flex flex-wrap items-center mt-3 gap-3">
                                                 <div className="flex items-center space-x-2 text-green-100">
                                                     <Package className="h-4 w-4" />
-                                                    <span className="text-lg font-medium">Professional Seed Management</span>
-                                                    <span className="text-green-200">•</span>
-                                                    <span className="text-green-200">Quality Assured</span>
+                                                    <span className="text-sm sm:text-lg font-medium">Seed Management</span>
+                                                    <span className="text-green-200 hidden sm:inline">•</span>
+                                                    <span className="text-green-200 text-sm sm:text-base">Quality Assured</span>
                                                 </div>
-                                                <div className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
-                                                    <span className="text-sm font-medium">Premium Seeds</span>
+                                                <div className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full whitespace-nowrap">
+                                                    <span className="text-xs sm:text-sm font-medium">Premium Seeds</span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
                                     {/* Quick Stats */}
-                                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 mb-4">
+                                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-3 sm:p-4 mb-4">
                                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                            <div className="text-center">
-                                                <p className="text-2xl font-bold text-white">{seeds.length}</p>
-                                                <p className="text-green-200 text-sm">Total Varieties</p>
+                                            <div className="text-center p-2">
+                                                <p className="text-xl sm:text-2xl font-bold text-white">{seeds.length}</p>
+                                                <p className="text-green-200 text-[10px] sm:text-sm uppercase tracking-wider font-semibold">Total Varieties</p>
                                             </div>
-                                            <div className="text-center">
-                                                <p className="text-2xl font-bold text-white">₹{Math.round(totalValue / 1000)}K</p>
-                                                <p className="text-green-200 text-sm">Total Value</p>
+                                            <div className="text-center p-2">
+                                                <p className="text-xl sm:text-2xl font-bold text-white">₹{Math.round(totalValue / 1000)}K</p>
+                                                <p className="text-green-200 text-[10px] sm:text-sm uppercase tracking-wider font-semibold">Total Value</p>
                                             </div>
-                                            <div className="text-center">
-                                                <p className="text-2xl font-bold text-white">{organicCount}</p>
-                                                <p className="text-green-200 text-sm">Organic</p>
+                                            <div className="text-center p-2">
+                                                <p className="text-xl sm:text-2xl font-bold text-white">{organicCount}</p>
+                                                <p className="text-green-200 text-[10px] sm:text-sm uppercase tracking-wider font-semibold">Organic</p>
                                             </div>
-                                            <div className="text-center">
-                                                <p className="text-2xl font-bold text-white">{avgGermination.toFixed(0)}%</p>
-                                                <p className="text-green-200 text-sm">Avg. Germination</p>
+                                            <div className="text-center p-2">
+                                                <p className="text-xl sm:text-2xl font-bold text-white">{avgGermination.toFixed(0)}%</p>
+                                                <p className="text-green-200 text-[10px] sm:text-sm uppercase tracking-wider font-semibold">Avg. Germination</p>
                                             </div>
                                         </div>
                                     </div>
@@ -469,38 +469,38 @@ const Seeds = () => {
                                 {/* Action Panel */}
                                 <div className="xl:col-span-4 space-y-4">
                                     {/* Add Seeds Button */}
-                                    <div className="bg-white/15 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                                    <div className="bg-white/15 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-white/20">
                                         <button
                                             onClick={() => setShowAddModal(true)}
-                                            className="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-6 py-4 rounded-xl flex items-center justify-center space-x-3 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105"
+                                            className="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-4 py-3 sm:px-6 sm:py-4 rounded-xl flex items-center justify-center space-x-3 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105"
                                         >
-                                            <Plus className="h-6 w-6" />
-                                            <span className="font-semibold text-lg">Add New Seeds</span>
+                                            <Plus className="h-5 w-5 sm:h-6 sm:w-6" />
+                                            <span className="font-semibold text-base sm:text-lg">Add New Seeds</span>
                                         </button>
                                     </div>
 
                                     {/* Quick Actions */}
-                                    <div className="bg-white/15 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                                    <div className="bg-white/15 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-white/20">
                                         <div className="flex items-center justify-between mb-4">
                                             <div className="flex items-center space-x-2">
-                                                <TrendingUp className="h-5 w-5 text-green-300" />
-                                                <h3 className="text-white font-semibold">Quick Actions</h3>
+                                                <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 text-green-300" />
+                                                <h3 className="text-white font-semibold text-sm sm:text-base">Quick Actions</h3>
                                             </div>
                                         </div>
 
-                                        <div className="space-y-3">
-                                            <button className="w-full flex items-center justify-between text-white hover:bg-white/10 transition-colors rounded-lg p-3">
-                                                <div className="flex items-center space-x-3">
-                                                    <Search className="h-5 w-5" />
+                                        <div className="space-y-2 sm:space-y-3">
+                                            <button className="w-full flex items-center justify-between text-white hover:bg-white/10 transition-colors rounded-lg p-2 sm:p-3">
+                                                <div className="flex items-center space-x-3 text-sm sm:text-base">
+                                                    <Search className="h-4 w-4 sm:h-5 sm:w-5" />
                                                     <span className="font-medium">Search Seeds</span>
                                                 </div>
                                             </button>
-                                            <button className="w-full flex items-center justify-between text-white hover:bg-white/10 transition-colors rounded-lg p-3">
-                                                <div className="flex items-center space-x-3">
-                                                    <AlertTriangle className="h-5 w-5" />
+                                            <button className="w-full flex items-center justify-between text-white hover:bg-white/10 transition-colors rounded-lg p-2 sm:p-3">
+                                                <div className="flex items-center space-x-3 text-sm sm:text-base">
+                                                    <AlertTriangle className="h-4 w-4 sm:h-5 sm:w-5" />
                                                     <span className="font-medium">Low Stock Alert</span>
                                                 </div>
-                                                <span className="bg-red-400/30 text-red-200 px-2 py-1 rounded-full text-xs">
+                                                <span className="bg-red-400/30 text-red-200 px-2 py-0.5 rounded-full text-[10px] sm:text-xs">
                                                     {lowStockCount}
                                                 </span>
                                             </button>

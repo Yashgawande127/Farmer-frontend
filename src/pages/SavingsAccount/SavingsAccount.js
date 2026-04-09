@@ -255,35 +255,35 @@ const SavingsAccount = () => {
     return (
         <div className="space-y-6">
             {/* Header */}
-            <div className="flex justify-between items-center">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-900">Savings Account</h1>
-                    <p className="text-gray-600">Manage your farm savings and track financial goals</p>
+                    <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight">Savings Account</h1>
+                    <p className="text-gray-600 text-sm sm:text-base">Manage your farm savings and track financial goals</p>
                 </div>
-                <div className="flex space-x-3">
+                <div className="flex space-x-2 sm:space-x-3 w-full sm:w-auto">
                     <button
                         onClick={() => setShowDepositModal(true)}
-                        className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2"
+                        className="flex-1 sm:flex-none bg-green-600 hover:bg-green-700 text-white px-4 py-2 sm:py-2.5 rounded-xl flex items-center justify-center space-x-2 shadow-lg transition-all active:scale-95"
                     >
-                        <Plus className="h-5 w-5" />
-                        <span>Deposit</span>
+                        <Plus className="h-4 w-4 sm:h-5 sm:w-5" />
+                        <span className="text-sm font-semibold text-white">Deposit</span>
                     </button>
                     <button
                         onClick={() => setShowWithdrawModal(true)}
-                        className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2"
+                        className="flex-1 sm:flex-none bg-red-600 hover:bg-red-700 text-white px-4 py-2 sm:py-2.5 rounded-xl flex items-center justify-center space-x-2 shadow-lg transition-all active:scale-95"
                     >
-                        <Minus className="h-5 w-5" />
-                        <span>Withdraw</span>
+                        <Minus className="h-4 w-4 sm:h-5 sm:w-5" />
+                        <span className="text-sm font-semibold text-white">Withdraw</span>
                     </button>
                 </div>
             </div>
 
             {/* Tabs */}
-            <div className="border-b border-gray-200">
-                <nav className="-mb-px flex space-x-8">
+            <div className="border-b border-gray-200 overflow-x-auto no-scrollbar">
+                <nav className="-mb-px flex space-x-4 sm:space-x-8 min-w-max pb-1">
                     <button
                         onClick={() => setActiveTab('overview')}
-                        className={`py-2 px-1 border-b-2 font-medium text-sm ${activeTab === 'overview'
+                        className={`py-2 px-1 border-b-2 font-bold text-sm transition-all ${activeTab === 'overview'
                                 ? 'border-green-500 text-green-600'
                                 : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                             }`}
@@ -292,7 +292,7 @@ const SavingsAccount = () => {
                     </button>
                     <button
                         onClick={() => setActiveTab('transactions')}
-                        className={`py-2 px-1 border-b-2 font-medium text-sm ${activeTab === 'transactions'
+                        className={`py-2 px-1 border-b-2 font-bold text-sm transition-all ${activeTab === 'transactions'
                                 ? 'border-green-500 text-green-600'
                                 : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                             }`}
@@ -301,7 +301,7 @@ const SavingsAccount = () => {
                     </button>
                     <button
                         onClick={() => setActiveTab('goals')}
-                        className={`py-2 px-1 border-b-2 font-medium text-sm ${activeTab === 'goals'
+                        className={`py-2 px-1 border-b-2 font-bold text-sm transition-all ${activeTab === 'goals'
                                 ? 'border-green-500 text-green-600'
                                 : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                             }`}
@@ -315,29 +315,36 @@ const SavingsAccount = () => {
             {activeTab === 'overview' && (
                 <div className="space-y-6">
                     {/* Account Summary */}
-                    <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-lg p-6 text-white">
-                        <div className="flex items-center justify-between mb-4">
-                            <div className="flex items-center">
-                                <Wallet className="h-8 w-8 mr-3" />
-                                <div>
-                                    <h2 className="text-xl font-bold">Farm Savings Account</h2>
-                                    <p className="text-green-100">{accountData.accountNumber}</p>
+                    <div className="bg-gradient-to-br from-green-600 via-emerald-600 to-blue-700 rounded-2xl p-6 sm:p-8 text-white relative overflow-hidden shadow-xl">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full translate-x-32 -translate-y-32"></div>
+                        <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full -translate-x-16 translate-y-16"></div>
+
+                        <div className="relative z-10">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-8">
+                                <div className="flex items-center">
+                                    <div className="bg-white/20 p-3 rounded-xl backdrop-blur-sm mr-4">
+                                        <Wallet className="h-6 w-6 sm:h-8 sm:w-8" />
+                                    </div>
+                                    <div>
+                                        <h2 className="text-lg sm:text-xl font-bold">Farm Savings</h2>
+                                        <p className="text-green-100 text-xs sm:text-sm font-medium tracking-widest">{accountData.accountNumber}</p>
+                                    </div>
+                                </div>
+                                <div className="text-left sm:text-right bg-white/10 p-3 rounded-xl backdrop-blur-sm w-fit">
+                                    <p className="text-green-100 text-[10px] uppercase font-bold tracking-widest">Interest Rate</p>
+                                    <p className="text-xl sm:text-2xl font-black">{accountData.interestRate}% <span className="text-xs font-normal opacity-80 underline underline-offset-4 cursor-help">P.A.</span></p>
                                 </div>
                             </div>
-                            <div className="text-right">
-                                <p className="text-green-100">Interest Rate</p>
-                                <p className="text-2xl font-bold">{accountData.interestRate}%</p>
-                            </div>
-                        </div>
-                        <div className="border-t border-green-400 pt-4">
-                            <div className="flex justify-between items-center">
-                                <div>
-                                    <p className="text-green-100">Current Balance</p>
-                                    <p className="text-3xl font-bold">₹{accountData.balance.toLocaleString()}</p>
-                                </div>
-                                <div className="text-right">
-                                    <p className="text-green-100">Last Updated</p>
-                                    <p className="text-sm">{new Date(accountData.lastUpdated).toLocaleString()}</p>
+                            <div className="border-t border-white/20 pt-6">
+                                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                                    <div>
+                                        <p className="text-green-100 text-xs sm:text-sm font-medium mb-1">Current Account Balance</p>
+                                        <p className="text-3xl sm:text-4xl font-black tracking-tight">₹{accountData.balance.toLocaleString()}</p>
+                                    </div>
+                                    <div className="text-left sm:text-right w-full sm:w-auto">
+                                        <p className="text-green-100 text-[10px] uppercase font-bold tracking-widest">Last Updated</p>
+                                        <p className="text-xs font-medium opacity-90">{new Date(accountData.lastUpdated).toLocaleString()}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -387,28 +394,28 @@ const SavingsAccount = () => {
                                 View All
                             </button>
                         </div>
-                        <div className="space-y-4">
+                        <div className="space-y-3">
                             {transactions.slice(0, 5).map((transaction) => (
-                                <div key={transaction.id} className="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
-                                    <div className="flex items-center">
-                                        <div className="p-2 rounded-full bg-gray-100">
+                                <div key={transaction.id} className="flex items-center justify-between p-3 sm:p-4 bg-gray-50 border border-gray-100 rounded-2xl group hover:bg-white hover:shadow-md transition-all duration-300">
+                                    <div className="flex items-center gap-3">
+                                        <div className="p-2 sm:p-2.5 rounded-xl bg-white shadow-sm transition-transform group-hover:scale-110">
                                             {getTransactionIcon(transaction.type)}
                                         </div>
-                                        <div className="ml-3">
-                                            <p className="text-sm font-medium text-gray-900">{transaction.description}</p>
-                                            <p className="text-sm text-gray-500">
+                                        <div>
+                                            <p className="text-sm font-bold text-gray-900 leading-tight">{transaction.description}</p>
+                                            <p className="text-[10px] sm:text-xs font-medium text-gray-500 mt-0.5">
                                                 {new Date(transaction.date).toLocaleDateString()} • {getCategoryLabel(transaction.category)}
                                             </p>
                                         </div>
                                     </div>
-                                    <div className="text-right">
-                                        <p className={`text-sm font-medium ${transaction.type === 'deposit' || transaction.type === 'interest'
+                                    <div className="text-right ml-2">
+                                        <p className={`text-sm sm:text-base font-black ${transaction.type === 'deposit' || transaction.type === 'interest'
                                                 ? 'text-green-600'
                                                 : 'text-red-600'
                                             }`}>
                                             {transaction.type === 'deposit' || transaction.type === 'interest' ? '+' : '-'}₹{transaction.amount.toLocaleString()}
                                         </p>
-                                        <p className="text-xs text-gray-500">Bal: ₹{transaction.balance.toLocaleString()}</p>
+                                        <p className="text-[10px] sm:text-xs font-bold text-gray-400">Bal: ₹{transaction.balance.toLocaleString()}</p>
                                     </div>
                                 </div>
                             ))}
@@ -421,11 +428,12 @@ const SavingsAccount = () => {
             {activeTab === 'transactions' && (
                 <div className="space-y-6">
                     {/* Filters */}
-                    <div className="bg-white rounded-lg shadow p-6">
-                        <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
-                            <div className="flex space-x-4">
+                    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 sm:p-6 text-white">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <div className="flex items-center gap-2">
+                                <Filter className="h-4 w-4 text-gray-400" />
                                 <select
-                                    className="px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
+                                    className="w-full sm:w-auto px-4 py-2 border border-gray-200 rounded-xl text-sm font-semibold text-gray-700 focus:ring-2 focus:ring-green-500/20 focus:border-green-500 outline-none transition-all"
                                     value={filterPeriod}
                                     onChange={(e) => setFilterPeriod(e.target.value)}
                                 >
@@ -436,79 +444,79 @@ const SavingsAccount = () => {
                                     ))}
                                 </select>
                             </div>
-                            <button className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 flex items-center">
+                            <button className="w-full sm:w-auto bg-green-50 hover:bg-green-100 text-green-700 px-4 py-2 rounded-xl border border-green-100 flex items-center justify-center font-bold text-sm transition-all active:scale-95">
                                 <Download className="h-4 w-4 mr-2" />
-                                Export
+                                Export CSV
                             </button>
                         </div>
                     </div>
 
-                    {/* Transactions Table */}
-                    <div className="bg-white rounded-lg shadow overflow-hidden">
-                        <table className="min-w-full divide-y divide-gray-200">
-                            <thead className="bg-gray-50">
-                                <tr>
-                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Date
-                                    </th>
-                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Description
-                                    </th>
-                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Category
-                                    </th>
-                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Type
-                                    </th>
-                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Amount
-                                    </th>
-                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Balance
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody className="bg-white divide-y divide-gray-200">
-                                {transactions.map((transaction) => (
-                                    <tr key={transaction.id} className="hover:bg-gray-50">
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {new Date(transaction.date).toLocaleDateString()}
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="flex items-center">
+                    {/* Transactions Table - Responsive card list on mobile, table on desktop */}
+                    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                        <div className="block md:hidden divide-y divide-gray-100">
+                            {transactions.map((transaction) => (
+                                <div key={transaction.id} className="p-4 flex flex-col gap-3">
+                                    <div className="flex justify-between items-start">
+                                        <div className="flex items-center gap-3">
+                                            <div className="p-2 bg-gray-50 rounded-lg">
                                                 {getTransactionIcon(transaction.type)}
-                                                <span className="ml-2 text-sm text-gray-900">{transaction.description}</span>
                                             </div>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <span className={`text-sm ${getCategoryColor(transaction.category)}`}>
-                                                {getCategoryLabel(transaction.category)}
-                                            </span>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${transaction.type === 'deposit' || transaction.type === 'interest'
-                                                    ? 'bg-green-100 text-green-800'
-                                                    : 'bg-red-100 text-red-800'
-                                                }`}>
-                                                {transaction.type}
-                                            </span>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                            <span className={
-                                                transaction.type === 'deposit' || transaction.type === 'interest'
-                                                    ? 'text-green-600'
-                                                    : 'text-red-600'
-                                            }>
+                                            <div>
+                                                <p className="text-sm font-bold text-gray-900 leading-tight">{transaction.description}</p>
+                                                <p className="text-xs text-gray-500">{new Date(transaction.date).toLocaleDateString()} • {getCategoryLabel(transaction.category)}</p>
+                                            </div>
+                                        </div>
+                                        <div className="text-right">
+                                            <p className={`text-sm font-black ${transaction.type === 'deposit' || transaction.type === 'interest' ? 'text-green-600' : 'text-red-600'}`}>
                                                 {transaction.type === 'deposit' || transaction.type === 'interest' ? '+' : '-'}₹{transaction.amount.toLocaleString()}
-                                            </span>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            ₹{transaction.balance.toLocaleString()}
-                                        </td>
+                                            </p>
+                                            <p className="text-[10px] font-bold text-gray-400">Bal: ₹{transaction.balance.toLocaleString()}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="hidden md:block overflow-x-auto">
+                            <table className="min-w-full divide-y divide-gray-200">
+                                <thead className="bg-gray-50/50">
+                                    <tr>
+                                        <th className="px-6 py-4 text-left text-[10px] font-black text-gray-400 uppercase tracking-[0.15em]">Date</th>
+                                        <th className="px-6 py-4 text-left text-[10px] font-black text-gray-400 uppercase tracking-[0.15em]">Description</th>
+                                        <th className="px-6 py-4 text-left text-[10px] font-black text-gray-400 uppercase tracking-[0.15em]">Category</th>
+                                        <th className="px-6 py-4 text-left text-[10px] font-black text-gray-400 uppercase tracking-[0.15em]">Type</th>
+                                        <th className="px-6 py-4 text-left text-[10px] font-black text-gray-400 uppercase tracking-[0.15em]">Amount</th>
+                                        <th className="px-6 py-4 text-left text-[10px] font-black text-gray-400 uppercase tracking-[0.15em]">Balance</th>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody className="bg-white divide-y divide-gray-100">
+                                    {transactions.map((transaction) => (
+                                        <tr key={transaction.id} className="hover:bg-gray-50 transition-colors">
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-600">{new Date(transaction.date).toLocaleDateString()}</td>
+                                            <td className="px-6 py-4 whitespace-nowrap">
+                                                <div className="flex items-center gap-3">
+                                                    {getTransactionIcon(transaction.type)}
+                                                    <span className="text-sm font-bold text-gray-900">{transaction.description}</span>
+                                                </div>
+                                            </td>
+                                            <td className="px-6 py-4 whitespace-nowrap">
+                                                <span className={`text-xs font-bold ${getCategoryColor(transaction.category)}`}>{getCategoryLabel(transaction.category)}</span>
+                                            </td>
+                                            <td className="px-6 py-4 whitespace-nowrap">
+                                                <span className={`px-2.5 py-1 text-[10px] font-black rounded-full uppercase tracking-tighter ${transaction.type === 'deposit' || transaction.type === 'interest' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                                                    {transaction.type}
+                                                </span>
+                                            </td>
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-black text-right pr-12">
+                                                <span className={transaction.type === 'deposit' || transaction.type === 'interest' ? 'text-green-600' : 'text-red-600'}>
+                                                    {transaction.type === 'deposit' || transaction.type === 'interest' ? '+' : '-'}₹{transaction.amount.toLocaleString()}
+                                                </span>
+                                            </td>
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">₹{transaction.balance.toLocaleString()}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             )}
@@ -529,46 +537,60 @@ const SavingsAccount = () => {
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                         {savingsGoals.map((goal) => (
-                            <div key={goal.id} className="bg-white rounded-lg shadow p-6">
-                                <div className="flex justify-between items-start mb-4">
-                                    <div>
-                                        <h3 className="text-lg font-semibold text-gray-900">{goal.title}</h3>
-                                        <p className="text-sm text-gray-600">{goal.description}</p>
+                            <div key={goal.id} className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 relative overflow-hidden group hover:shadow-xl transition-all duration-500">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-green-50 rounded-full translate-x-16 -translate-y-16 group-hover:bg-green-100 transition-colors"></div>
+                                
+                                <div className="relative z-10">
+                                    <div className="flex justify-between items-start mb-6">
+                                        <div className="flex items-center gap-4">
+                                            <div className="p-3 bg-green-50 rounded-xl">
+                                                <Target className="h-6 w-6 text-green-600" />
+                                            </div>
+                                            <div>
+                                                <h3 className="text-lg font-black text-gray-900 leading-tight">{goal.title}</h3>
+                                                <p className="text-xs font-semibold text-gray-500 mt-0.5">{goal.description}</p>
+                                            </div>
+                                        </div>
+                                        <span className={`px-3 py-1 text-[10px] font-black rounded-lg uppercase tracking-widest ${getPriorityColor(goal.priority)}`}>
+                                            {goal.priority}
+                                        </span>
                                     </div>
-                                    <span className={`px-2 py-1 text-xs font-medium rounded-full ${getPriorityColor(goal.priority)}`}>
-                                        {goal.priority}
-                                    </span>
-                                </div>
 
-                                <div className="mb-4">
-                                    <div className="flex justify-between text-sm text-gray-600 mb-1">
-                                        <span>Progress</span>
-                                        <span>{getProgressPercentage(goal.currentAmount, goal.targetAmount).toFixed(1)}%</span>
+                                    <div className="mb-6 space-y-2">
+                                        <div className="flex justify-between items-end">
+                                            <div className="space-y-1">
+                                                <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Saved Amount</p>
+                                                <p className="text-2xl font-black text-green-600">₹{goal.currentAmount.toLocaleString()}</p>
+                                            </div>
+                                            <div className="text-right">
+                                                <p className="text-xs font-black text-gray-900">{getProgressPercentage(goal.currentAmount, goal.targetAmount).toFixed(0)}%</p>
+                                                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Progress</p>
+                                            </div>
+                                        </div>
+                                        <div className="w-full bg-gray-100 rounded-full h-3 p-1 overflow-hidden">
+                                            <div
+                                                className="bg-gradient-to-r from-green-500 to-emerald-600 h-full rounded-full transition-all duration-1000 ease-out"
+                                                style={{ width: `${getProgressPercentage(goal.currentAmount, goal.targetAmount)}%` }}
+                                            />
+                                        </div>
                                     </div>
-                                    <div className="w-full bg-gray-200 rounded-full h-2">
-                                        <div
-                                            className="bg-green-600 h-2 rounded-full"
-                                            style={{ width: `${getProgressPercentage(goal.currentAmount, goal.targetAmount)}%` }}
-                                        />
-                                    </div>
-                                </div>
 
-                                <div className="grid grid-cols-2 gap-4 text-sm">
-                                    <div>
-                                        <p className="text-gray-600">Current</p>
-                                        <p className="font-semibold">₹{goal.currentAmount.toLocaleString()}</p>
-                                    </div>
-                                    <div>
-                                        <p className="text-gray-600">Target</p>
-                                        <p className="font-semibold">₹{goal.targetAmount.toLocaleString()}</p>
-                                    </div>
-                                    <div>
-                                        <p className="text-gray-600">Remaining</p>
-                                        <p className="font-semibold">₹{(goal.targetAmount - goal.currentAmount).toLocaleString()}</p>
-                                    </div>
-                                    <div>
-                                        <p className="text-gray-600">Deadline</p>
-                                        <p className="font-semibold">{new Date(goal.deadline).toLocaleDateString()}</p>
+                                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-gray-50">
+                                        <div>
+                                            <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Target</p>
+                                            <p className="text-sm font-bold text-gray-900">₹{goal.targetAmount.toLocaleString()}</p>
+                                        </div>
+                                        <div>
+                                            <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Left</p>
+                                            <p className="text-sm font-bold text-red-600">₹{(goal.targetAmount - goal.currentAmount).toLocaleString()}</p>
+                                        </div>
+                                        <div className="col-span-2 sm:col-span-1">
+                                            <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Deadline</p>
+                                            <div className="flex items-center gap-1">
+                                                <Calendar className="h-3 w-3 text-gray-400" />
+                                                <p className="text-sm font-bold text-gray-900">{new Date(goal.deadline).toLocaleDateString()}</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

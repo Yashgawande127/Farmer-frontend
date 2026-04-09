@@ -170,25 +170,25 @@ const Profile = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto space-y-6">
+        <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6 px-2 sm:px-4">
             {/* Header */}
             <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-                <div className="px-6 py-4 border-b border-gray-200">
-                    <div className="flex items-center justify-between">
-                        <h1 className="text-2xl font-bold text-gray-900">Profile Settings</h1>
+                <div className="px-4 py-4 sm:px-6 border-b border-gray-200">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Profile Settings</h1>
                         {!isEditing ? (
                             <button
                                 onClick={() => setIsEditing(true)}
-                                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors"
+                                className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors"
                             >
                                 <Edit3 className="h-4 w-4 mr-2" />
                                 Edit Profile
                             </button>
                         ) : (
-                            <div className="flex space-x-2">
+                            <div className="flex flex-col sm:flex-row gap-2">
                                 <button
                                     onClick={handleCancel}
-                                    className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors"
+                                    className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors"
                                 >
                                     <X className="h-4 w-4 mr-2" />
                                     Cancel
@@ -196,7 +196,7 @@ const Profile = () => {
                                 <button
                                     onClick={handleSave}
                                     disabled={loading}
-                                    className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:bg-gray-400 transition-colors"
+                                    className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:bg-gray-400 transition-colors"
                                 >
                                     <Save className="h-4 w-4 mr-2" />
                                     {loading ? 'Saving...' : 'Save Changes'}
@@ -219,7 +219,7 @@ const Profile = () => {
                 )}
 
                 {/* Profile Content */}
-                <div className="p-6">
+                <div className="p-4 sm:p-6">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         {/* Profile Image and Basic Info */}
                         <div className="lg:col-span-1">
@@ -532,36 +532,36 @@ const Profile = () => {
                     <div className="space-y-4">
                         {/* Logout Section */}
                         <div className="border border-red-200 rounded-lg p-4 bg-red-50">
-                            <div className="flex items-center justify-between">
+                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                                 <div className="flex items-center space-x-3">
                                     <div className="bg-red-100 rounded-lg p-2">
                                         <LogOut className="h-5 w-5 text-red-600" />
                                     </div>
                                     <div>
                                         <h3 className="text-sm font-medium text-gray-900">Sign Out</h3>
-                                        <p className="text-sm text-gray-600">Sign out from your account on this device</p>
+                                        <p className="text-xs sm:text-sm text-gray-600">Sign out from your account on this device</p>
                                     </div>
                                 </div>
 
                                 {!showLogoutConfirm ? (
                                     <button
                                         onClick={() => setShowLogoutConfirm(true)}
-                                        className="inline-flex items-center px-4 py-2 border border-red-300 text-sm font-medium rounded-md text-red-700 bg-white hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors"
+                                        className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 border border-red-300 text-sm font-medium rounded-md text-red-700 bg-white hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors"
                                     >
                                         <LogOut className="h-4 w-4 mr-2" />
                                         Sign Out
                                     </button>
                                 ) : (
-                                    <div className="flex space-x-2">
+                                    <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
                                         <button
                                             onClick={() => setShowLogoutConfirm(false)}
-                                            className="inline-flex items-center px-3 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors"
+                                            className="w-full sm:w-auto inline-flex items-center justify-center px-3 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors"
                                         >
                                             Cancel
                                         </button>
                                         <button
                                             onClick={handleLogout}
-                                            className="inline-flex items-center px-3 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors"
+                                            className="w-full sm:w-auto inline-flex items-center justify-center px-3 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors"
                                         >
                                             <AlertTriangle className="h-4 w-4 mr-2" />
                                             Confirm Sign Out

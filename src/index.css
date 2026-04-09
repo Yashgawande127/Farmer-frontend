@@ -5,10 +5,11 @@
 @layer base {
   body {
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    @apply bg-gray-50 text-gray-900 antialiased;
+    @apply bg-gray-50 text-gray-900 antialiased overflow-x-hidden;
   }
   
   html {
+    @apply overflow-x-hidden;
     scroll-behavior: smooth;
   }
 }
@@ -169,12 +170,17 @@
   /* Mobile Optimizations */
   @media (max-width: 640px) {
     .dashboard-card {
-      @apply p-4;
+      @apply p-4 rounded-xl;
     }
     
     .stat-card {
-      @apply p-4;
+      @apply p-4 rounded-xl;
     }
+
+    /* Prevent text being too small or large on mobile */
+    h1 { @apply text-2xl; }
+    h2 { @apply text-xl; }
+    h3 { @apply text-lg; }
   }
 
   /* Smooth animations for data updates */

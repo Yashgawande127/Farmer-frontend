@@ -398,27 +398,72 @@ const Machinery = () => {
 
     return (
         <div className="space-y-6">
-            {/* Header */}
-            <div className="flex justify-between items-center">
-                <div>
-                    <h1 className="text-2xl font-bold text-gray-900">Machinery Management</h1>
-                    <p className="text-gray-600">Browse, rent, buy, and manage your farming machinery</p>
-                </div>
-                <div className="flex space-x-3">
-                    <button
-                        onClick={() => setShowAddModal(true)}
-                        className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 flex items-center"
-                    >
-                        <Plus className="h-4 w-4 mr-2" />
-                        Add Machinery
-                    </button>
-                    <button
-                        onClick={() => setIsLoading(!isLoading)}
-                        className="bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 flex items-center"
-                    >
-                        <RefreshCw className={`h-4 w-4 mr-2 ${isLoading ? 'animate-spin' : ''}`} />
-                        Refresh
-                    </button>
+            {/* Premium Professional Header */}
+            <div className="relative mb-8">
+                <div className="bg-gradient-to-br from-blue-600 via-indigo-700 to-blue-800 rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 text-white relative overflow-hidden shadow-2xl">
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/10"></div>
+                    <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-48 translate-x-48"></div>
+                    <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full translate-y-32 -translate-x-32"></div>
+
+                    <div className="relative z-10">
+                        <div className="grid grid-cols-1 xl:grid-cols-12 gap-8">
+                            <div className="xl:col-span-8">
+                                <div className="flex flex-col sm:flex-row items-start sm:items-center mb-6">
+                                    <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 sm:p-3 mb-4 sm:mb-0 sm:mr-4">
+                                        <Truck className="h-8 w-8 text-blue-300" />
+                                    </div>
+                                    <div>
+                                        <div className="flex flex-wrap items-center gap-2">
+                                            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
+                                                Machinery Management
+                                            </h1>
+                                        </div>
+                                        <p className="text-blue-100 mt-2 text-sm sm:text-base max-w-2xl">
+                                            Browse, rent, buy, and manage your farming equipment with professional tools and tracking.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-3 sm:p-4">
+                                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                        <div className="text-center p-2">
+                                            <p className="text-xl sm:text-2xl font-bold text-white">{stats.totalMachinery}</p>
+                                            <p className="text-blue-200 text-[10px] sm:text-sm uppercase tracking-wider font-semibold">Total Fleet</p>
+                                        </div>
+                                        <div className="text-center p-2">
+                                            <p className="text-xl sm:text-2xl font-bold text-white">₹{(stats.totalValue / 100000).toFixed(1)}L</p>
+                                            <p className="text-blue-200 text-[10px] sm:text-sm uppercase tracking-wider font-semibold">Asset Value</p>
+                                        </div>
+                                        <div className="text-center p-2">
+                                            <p className="text-xl sm:text-2xl font-bold text-white">{stats.activeRentals}</p>
+                                            <p className="text-blue-200 text-[10px] sm:text-sm uppercase tracking-wider font-semibold">Active Rentals</p>
+                                        </div>
+                                        <div className="text-center p-2">
+                                            <p className="text-xl sm:text-2xl font-bold text-white">{stats.maintenanceDue}</p>
+                                            <p className="text-blue-200 text-[10px] sm:text-sm uppercase tracking-wider font-semibold">Alerts</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="xl:col-span-4 flex flex-col justify-center space-y-4">
+                                <button
+                                    onClick={() => setShowAddModal(true)}
+                                    className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white px-4 py-3 sm:px-6 sm:py-4 rounded-xl flex items-center justify-center space-x-3 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105"
+                                >
+                                    <Plus className="h-5 w-5 sm:h-6 sm:w-6" />
+                                    <span className="font-semibold text-base sm:text-lg">Add Machinery</span>
+                                </button>
+                                <button
+                                    onClick={() => setIsLoading(!isLoading)}
+                                    className="w-full bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-4 py-3 rounded-xl flex items-center justify-center space-x-3 transition-all duration-300 border border-white/20"
+                                >
+                                    <RefreshCw className={`h-4 w-4 sm:h-5 sm:w-5 ${isLoading ? 'animate-spin' : ''}`} />
+                                    <span className="font-medium">Refresh Status</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 

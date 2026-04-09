@@ -310,7 +310,7 @@ const Dashboard = () => {
             {/* Premium Professional Header */}
             <div className="relative">
                 {/* Background with animated patterns */}
-                <div className="bg-gradient-to-br from-emerald-600 via-green-700 to-teal-800 rounded-3xl p-8 text-white relative overflow-hidden shadow-2xl">
+                <div className="bg-gradient-to-br from-emerald-600 via-green-700 to-teal-800 rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 text-white relative overflow-hidden shadow-2xl">
                     {/* Animated background elements */}
                     <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/10"></div>
                     <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-48 translate-x-48"></div>
@@ -329,13 +329,13 @@ const Dashboard = () => {
                         <div className="grid grid-cols-1 xl:grid-cols-12 gap-8">
                             {/* Main Welcome Section */}
                             <div className="xl:col-span-7">
-                                <div className="flex items-center mb-4">
-                                    <div className="bg-white/20 backdrop-blur-sm rounded-full p-3 mr-4">
+                                <div className="flex flex-col sm:flex-row items-start sm:items-center mb-6">
+                                    <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 sm:p-3 mb-4 sm:mb-0 sm:mr-4">
                                         <Crown className="h-8 w-8 text-yellow-300" />
                                     </div>
                                     <div>
-                                        <div className="flex items-center space-x-2">
-                                            <h1 className="text-4xl font-bold bg-gradient-to-r from-white to-green-100 bg-clip-text text-transparent">
+                                        <div className="flex flex-wrap items-center gap-2">
+                                            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-white to-green-100 bg-clip-text text-transparent">
                                                 Welcome back, {user?.name}!
                                             </h1>
                                             <div className="flex space-x-1">
@@ -343,50 +343,50 @@ const Dashboard = () => {
                                                 <Zap className="h-5 w-5 text-yellow-300" />
                                             </div>
                                         </div>
-                                        <div className="flex items-center mt-2 space-x-4">
+                                        <div className="flex flex-wrap items-center mt-3 gap-3">
                                             <div className="flex items-center space-x-2 text-green-100">
                                                 <MapPin className="h-4 w-4" />
-                                                <span className="text-lg font-medium">{user?.farmName}</span>
-                                                <span className="text-green-200">•</span>
-                                                <span className="text-green-200">{user?.location}</span>
+                                                <span className="text-sm sm:text-lg font-medium">{user?.farmName}</span>
+                                                <span className="text-green-200 hidden sm:inline">•</span>
+                                                <span className="text-green-200 text-sm sm:text-base">{user?.location}</span>
                                             </div>
-                                            <div className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
-                                                <span className="text-sm font-medium">Premium Member</span>
+                                            <div className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full whitespace-nowrap">
+                                                <span className="text-xs sm:text-sm font-medium">Premium Member</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 {/* Date and Time Section */}
-                                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 mb-4">
-                                    <div className="flex items-center justify-between">
+                                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-3 sm:p-4 mb-4">
+                                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0">
                                         <div className="flex items-center space-x-3">
                                             <div className="bg-white/20 rounded-lg p-2">
                                                 <Calendar className="h-5 w-5" />
                                             </div>
                                             <div>
-                                                <p className="text-white font-semibold">
+                                                <p className="text-white font-semibold text-sm sm:text-base">
                                                     {currentTime.toLocaleDateString('en-IN', {
-                                                        weekday: 'long',
-                                                        month: 'long',
+                                                        weekday: 'short',
+                                                        month: 'short',
                                                         day: 'numeric'
                                                     })}
                                                 </p>
-                                                <p className="text-green-200 text-sm">{currentTime.getFullYear()}</p>
+                                                <p className="text-green-200 text-xs">{currentTime.getFullYear()}</p>
                                             </div>
                                         </div>
-                                        <div className="flex items-center space-x-3">
+                                        <div className="flex items-center space-x-3 sm:flex-row-reverse sm:space-x-reverse">
                                             <div className="bg-white/20 rounded-lg p-2">
                                                 <Clock className="h-5 w-5" />
                                             </div>
-                                            <div className="text-right">
-                                                <p className="text-white font-semibold">
+                                            <div className="text-left sm:text-right">
+                                                <p className="text-white font-semibold text-sm sm:text-base">
                                                     {currentTime.toLocaleTimeString('en-IN', {
                                                         hour: '2-digit',
                                                         minute: '2-digit'
                                                     })}
                                                 </p>
-                                                <p className="text-green-200 text-sm">Local Time</p>
+                                                <p className="text-green-200 text-xs">Local Time</p>
                                             </div>
                                         </div>
                                     </div>
@@ -409,41 +409,41 @@ const Dashboard = () => {
                             {/* Weather and Status Panel */}
                             <div className="xl:col-span-5 space-y-4">
                                 {/* Weather Widget */}
-                                <div className="bg-white/15 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                                <div className="bg-white/15 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-white/20">
                                     <div className="flex items-center justify-between mb-4">
                                         <div className="flex items-center space-x-2">
                                             <Cloud className="h-5 w-5 text-blue-300" />
-                                            <h3 className="text-white font-semibold">Weather Now</h3>
+                                            <h3 className="text-white font-semibold text-sm sm:text-base">Weather Now</h3>
                                         </div>
                                         <div className="flex items-center space-x-1">
                                             <Wifi className="h-4 w-4 text-green-300" />
-                                            <span className="text-xs text-green-300">Live</span>
+                                            <span className="text-[10px] sm:text-xs text-green-300 uppercase tracking-wider font-bold">Live</span>
                                         </div>
                                     </div>
-
-                                    <div className="flex items-center justify-between">
+                                    
+                                    <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-6 sm:gap-0">
                                         <div className="flex items-center space-x-4">
                                             <div className="text-center">
                                                 {getWeatherIcon(dashboardData.weatherData.condition)}
-                                                <p className="text-xs text-blue-200 mt-1">
+                                                <p className="text-[10px] sm:text-xs text-blue-200 mt-1">
                                                     {dashboardData.weatherData.condition}
                                                 </p>
                                             </div>
                                             <div>
-                                                <p className="text-3xl font-bold text-white">
+                                                <p className="text-2xl sm:text-3xl font-bold text-white">
                                                     {dashboardData.weatherData.temperature}°C
                                                 </p>
-                                                <p className="text-blue-200 text-sm">Feels perfect</p>
+                                                <p className="text-blue-200 text-xs sm:text-sm">Feels perfect</p>
                                             </div>
                                         </div>
 
-                                        <div className="text-right space-y-2">
-                                            <div className="flex items-center text-sm text-blue-200">
-                                                <Droplets className="h-4 w-4 mr-2" />
+                                        <div className="flex sm:flex-col justify-around w-full sm:w-auto sm:text-right gap-4 sm:gap-2">
+                                            <div className="flex items-center text-xs text-blue-200">
+                                                <Droplets className="h-4 w-4 mr-1.5" />
                                                 <span>{dashboardData.weatherData.humidity}% humidity</span>
                                             </div>
-                                            <div className="flex items-center text-sm text-blue-200">
-                                                <Wind className="h-4 w-4 mr-2" />
+                                            <div className="flex items-center text-xs text-blue-200">
+                                                <Wind className="h-4 w-4 mr-1.5" />
                                                 <span>{dashboardData.weatherData.windSpeed} km/h wind</span>
                                             </div>
                                         </div>
@@ -583,7 +583,7 @@ const Dashboard = () => {
                         <h2 className="text-lg font-bold text-gray-900">Weather Forecast</h2>
                         <Cloud className="h-5 w-5 text-gray-400" />
                     </div>
-                    <div className="grid grid-cols-4 gap-3">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                         {dashboardData.weatherData.forecast.map((day, index) => (
                             <div key={index} className="text-center p-3 bg-gray-50 rounded-lg">
                                 <p className="text-xs font-medium text-gray-600">{day.day}</p>
@@ -1070,21 +1070,21 @@ const Dashboard = () => {
                     <p className="text-lg opacity-90 mb-4">Your farming operation at a glance</p>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-                        <div className="text-center">
-                            <div className="text-2xl font-bold">85%</div>
-                            <div className="text-sm opacity-80">Crop Health</div>
+                        <div className="text-center p-3 sm:p-0">
+                            <div className="text-xl sm:text-2xl font-bold">85%</div>
+                            <div className="text-xs sm:text-sm opacity-80">Crop Health</div>
                         </div>
-                        <div className="text-center">
-                            <div className="text-2xl font-bold">31%</div>
-                            <div className="text-sm opacity-80">Profit Margin</div>
+                        <div className="text-center p-3 sm:p-0">
+                            <div className="text-xl sm:text-2xl font-bold">31%</div>
+                            <div className="text-xs sm:text-sm opacity-80">Profit Margin</div>
                         </div>
-                        <div className="text-center">
-                            <div className="text-2xl font-bold">12</div>
-                            <div className="text-sm opacity-80">Active Fields</div>
+                        <div className="text-center p-3 sm:p-0">
+                            <div className="text-xl sm:text-2xl font-bold">12</div>
+                            <div className="text-xs sm:text-sm opacity-80">Active Fields</div>
                         </div>
-                        <div className="text-center">
-                            <div className="text-2xl font-bold">₹45K</div>
-                            <div className="text-sm opacity-80">Savings</div>
+                        <div className="text-center p-3 sm:p-0">
+                            <div className="text-xl sm:text-2xl font-bold">₹45K</div>
+                            <div className="text-xs sm:text-sm opacity-80">Savings</div>
                         </div>
                     </div>
                 </div>

@@ -12,10 +12,14 @@ import {
     Search,
     IndianRupee,
     Truck,
-    MapPin
+    MapPin,
+    Menu as MenuIcon,
+    X
 } from 'lucide-react';
 
 const Homepage = () => {
+    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
     return (
         <div className="min-h-screen bg-white">
             {/* Navigation */}
@@ -25,17 +29,34 @@ const Homepage = () => {
                         <div className="bg-green-600 p-2 rounded-lg">
                             <Sprout className="text-white w-6 h-6" />
                         </div>
-                        <span className="text-2xl font-bold gradient-text">KrishiSahayak</span>
+                        <span className="text-xl sm:text-2xl font-bold gradient-text">KrishiSahayak</span>
                     </div>
 
-                    <div className="flex items-center space-x-4">
+                    {/* Desktop Menu */}
+                    <div className="hidden md:flex items-center space-x-4">
                         <Link to="/login" className="text-gray-700 hover:text-green-600 font-medium px-4">Login</Link>
                         <Link to="/register" className="btn-primary flex items-center space-x-2 px-6 py-2.5">
                             <span>Get Started</span>
                             <ArrowRight className="w-4 h-4" />
                         </Link>
                     </div>
+
+                    {/* Mobile Menu Toggle */}
+                    <button 
+                        className="md:hidden p-2 text-gray-600"
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    >
+                        {isMenuOpen ? <X className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
+                    </button>
                 </div>
+
+                {/* Mobile Menu Overlay */}
+                {isMenuOpen && (
+                    <div className="md:hidden bg-white border-t border-gray-100 mt-3 py-4 space-y-4 animate-fadeIn">
+                        <Link to="/login" className="block px-4 py-2 text-gray-700 font-bold">Login</Link>
+                        <Link to="/register" className="block px-4 py-2 text-green-600 font-bold">Get Started</Link>
+                    </div>
+                )}
             </nav>
 
             {/* Hero Section */}
@@ -53,11 +74,11 @@ const Homepage = () => {
                                 </span>
                                 Trusted by 10,000+ Indian Farmers
                             </div>
-                            <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 leading-tight mb-6">
-                                Smart Farming for a <br />
+                            <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-gray-900 leading-tight mb-6">
+                                Smart Farming for a <br className="hidden sm:block" />
                                 <span className="text-green-600">Prosperous India</span>
                             </h1>
-                            <p className="text-xl text-gray-600 mb-10 leading-relaxed max-w-xl">
+                            <p className="text-lg sm:text-xl text-gray-600 mb-10 leading-relaxed max-w-xl">
                                 Track your seeds, fertilizers, and machinery with ease. Get real-time weather alerts specially designed for the Indian farmer.
                             </p>
                             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
